@@ -1,0 +1,95 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/auto-prime.sh", "timeout": 15 }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh history-shaped-prompt", "timeout": 5 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh prompt-memory-fan-out", "timeout": 5 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh anchor-user-work", "timeout": 3 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh harvest-finding", "timeout": 3 }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "apply_patch",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh rules-prefetch", "timeout": 8 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh explain-prefetch", "timeout": 8 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh anchor-user-work", "timeout": 3 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh anchor-edit", "timeout": 3 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh surface-playbook", "timeout": 3 }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh routing-enforce", "timeout": 5 }
+        ]
+      },
+      {
+        "matcher": "mcp__mind__task_create",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh playbooks-for-task", "timeout": 5 }
+        ]
+      },
+      {
+        "matcher": "mcp__mind__task_complete",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh done-gate", "timeout": 5 }
+        ]
+      },
+      {
+        "matcher": "mcp__mind__task_advance",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh done-gate", "timeout": 5 }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh task-phase-reminder", "timeout": 5 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh count-edit", "timeout": 2 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh check-edit", "timeout": 6 }
+        ]
+      },
+      {
+        "matcher": "mcp__mind-code__xref",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh routing-enforce", "timeout": 3 }
+        ]
+      },
+      {
+        "matcher": "mcp__mind__task_todo_add",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh anchor-user-work", "timeout": 3 }
+        ]
+      },
+      {
+        "matcher": "mcp__mind__task_set_active",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh playbooks-for-task", "timeout": 5 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh stuck-design", "timeout": 3 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh session-reground", "timeout": 5 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh session-feedback", "timeout": 5 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh claim-check", "timeout": 5 }
+        ]
+      }
+    ]
+  }
+}

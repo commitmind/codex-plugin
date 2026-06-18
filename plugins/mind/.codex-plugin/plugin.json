@@ -1,0 +1,27 @@
+{
+  "name": "mind",
+  "version": "0.1.0",
+  "description": "CommitMind for OpenAI Codex CLI — deterministic memory, code-intel, and task workflows via skills + MCP. Install hooks with `commitmind codex install`. Requires the commitmind CLI installed and authenticated.",
+  "author": {
+    "name": "CommitMind",
+    "url": "https://commitmind.dev"
+  },
+  "homepage": "https://commitmind.dev",
+  "repository": "https://github.com/commitmind/codex-plugin",
+  "license": "MIT",
+  "keywords": ["memory", "code-intelligence", "tasks", "mcp", "git-history"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "CommitMind",
+    "shortDescription": "Deterministic memory, code-intel & task workflows",
+    "longDescription": "CommitMind gives Codex deterministic project memory, indexed code navigation (xref), and task/playbook workflows — surfaced automatically through hooks and MCP tools.",
+    "developerName": "CommitMind",
+    "category": "Productivity",
+    "capabilities": ["deterministic memory", "code intelligence", "task workflows"],
+    "websiteURL": "https://commitmind.dev",
+    "brandColor": "#5B8DEF",
+    "defaultPrompt": ["what can you do with CommitMind?"],
+    "screenshots": []
+  }
+}

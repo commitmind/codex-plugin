@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mind": {
+      "command": "commitmind",
+      "args": ["mcp", "serve"]
+    },
+    "mind-code": {
+      "command": "commitmind",
+      "args": ["mcp", "serve-code"]
+    }
+  }
+}
