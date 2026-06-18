@@ -5,6 +5,12 @@
         "hooks": [
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/auto-prime.sh", "timeout": 15 }
         ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/auto-post-compact.sh", "timeout": 10 }
+        ]
       }
     ],
     "UserPromptSubmit": [
@@ -88,6 +94,13 @@
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh session-reground", "timeout": 5 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh session-feedback", "timeout": 5 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh claim-check", "timeout": 5 }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh subagent-preload", "timeout": 3 }
         ]
       }
     ]

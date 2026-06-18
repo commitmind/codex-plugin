@@ -36,8 +36,13 @@ additionalContext` injection + exit-2 blocks), and MCP tool names
 commitmind codex install
 ```
 
-This writes `~/.codex/hooks.json` (SessionStart prime + the full
-PreToolUse/PostToolUse/Stop gate set, host-adapted for Codex) and
+`commitmind init` also **auto-detects Codex** (the `codex` binary or
+`~/.codex`) and offers to run this for you; `commitmind update` refreshes
+an existing install with new hook entries. Run it directly any time:
+
+This writes `~/.codex/hooks.json` (SessionStart prime + post-compact
+reprime, the full PreToolUse/PostToolUse/Stop gate set, and a
+SubagentStart anchoring hook — host-adapted for Codex) and
 registers the `mind` / `mind-code` MCP servers via the `codex` CLI. Then
 **trust the hooks**: in the Codex TUI run `/hooks` and approve them —
 Codex hash-pins hook definitions and skips untrusted ones. Re-run with
