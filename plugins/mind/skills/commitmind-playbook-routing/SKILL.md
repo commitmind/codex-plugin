@@ -31,3 +31,7 @@ The cost of one extra `list_playbooks` call is ~200ms; the cost of skipping a ve
 2. `read_playbook(<slug>)` — loads the body. Read carefully BEFORE acting; the body is the runbook.
 
 Listing without reading the body is the partial-execution failure mode. Always read the top hit before starting work.
+
+## Spec-driven gate
+
+For feature/refactor work in a spec-driven project, create/read/link an approved spec before advancing the task to implementation. A task `design_doc` is useful planning context, but it is not the approved spec and does not satisfy the `spec_id` gate.

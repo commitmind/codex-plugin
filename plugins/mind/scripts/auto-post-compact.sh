@@ -16,4 +16,4 @@ fi
 if ! command -v commitmind >/dev/null 2>&1; then
     exit 0
 fi
-timeout 8 commitmind prime --hook-envelope --post-compact 2>/dev/null || true
+timeout 8 commitmind prime --hook-envelope --post-compact --host codex 2>/dev/null || true

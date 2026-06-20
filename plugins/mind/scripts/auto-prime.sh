@@ -29,4 +29,4 @@ if ! command -v commitmind >/dev/null 2>&1; then
 fi
 
 # Run with a tight timeout so a backend hiccup doesn't slow session start.
-timeout 12 commitmind prime --hook-envelope 2>/dev/null || true
+timeout 12 commitmind prime --hook-envelope --host codex 2>/dev/null || true
