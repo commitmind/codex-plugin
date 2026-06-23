@@ -1,6 +1,6 @@
 {
   "name": "mind",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "CommitMind for OpenAI Codex CLI — deterministic memory, code-intel, and task workflows via skills + MCP. Install hooks with `commitmind codex install`. Requires the commitmind CLI installed and authenticated.",
   "author": {
     "name": "CommitMind",
