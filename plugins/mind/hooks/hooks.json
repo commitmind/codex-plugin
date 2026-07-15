@@ -85,6 +85,12 @@
         "hooks": [
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh playbooks-for-task", "timeout": 5 }
         ]
+      },
+      {
+        "matcher": "mcp__mind__log_observation",
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh harvest-verdict", "timeout": 3 }
+        ]
       }
     ],
     "Stop": [
@@ -92,6 +98,7 @@
         "hooks": [
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh stuck-design", "timeout": 3 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh session-reground", "timeout": 5 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh collision-check", "timeout": 5 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh session-feedback", "timeout": 5 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh claim-check", "timeout": 5 }
         ]
