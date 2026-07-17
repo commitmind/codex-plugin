@@ -7,6 +7,11 @@
         ]
       },
       {
+        "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/session-peers-check.sh", "timeout": 8 }
+        ]
+      },
+      {
         "matcher": "compact",
         "hooks": [
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/auto-post-compact.sh", "timeout": 10 }
@@ -16,6 +21,7 @@
     "UserPromptSubmit": [
       {
         "hooks": [
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh surface-findings", "timeout": 5 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh history-shaped-prompt", "timeout": 5 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh prompt-memory-fan-out", "timeout": 5 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh anchor-user-work", "timeout": 3 },
@@ -31,13 +37,15 @@
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh explain-prefetch", "timeout": 8 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh anchor-user-work", "timeout": 3 },
           { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh anchor-edit", "timeout": 3 },
-          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh surface-playbook", "timeout": 3 }
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh surface-playbook", "timeout": 3 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh file-lease-check", "timeout": 5 }
         ]
       },
       {
         "matcher": "Bash",
         "hooks": [
-          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh routing-enforce", "timeout": 5 }
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh routing-enforce", "timeout": 5 },
+          { "type": "command", "command": "__PLUGIN_ROOT__/scripts/hook.sh workflow-playbook", "timeout": 3 }
         ]
       },
       {

@@ -7,7 +7,16 @@ metadata:
 
 # Parallel sessions — split via git worktree
 
-When two top-level sessions are about to collide on the same working tree, branch the second one into its own worktree:
+When two top-level sessions are about to collide on the same working tree, branch the second one into its own worktree. One command does the fumble-prone git steps for you:
+
+```sh
+commitmind worktree new --task <task-id> --editor <editor>
+cd ../<repo>-<task-id>    # printed for you — a subprocess can't cd your shell
+```
+
+`worktree new` runs `git worktree add ../<repo>-<task-id> -b task/<task-id>` and `commitmind init --mcp-config-only=<editor>` inside the new worktree, then prints the `cd`. Omit `--editor` to have it print the init command instead of running it; pass `--no-init` to only create the worktree + branch.
+
+Equivalent by hand, if you prefer:
 
 ```sh
 git worktree add ../<repo>-<task-id> -b task/<task-id>
